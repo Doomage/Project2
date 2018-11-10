@@ -15,17 +15,58 @@ namespace Project2
 
         public Results()
         {
-            Console.WriteLine("Give me your 1st number");
-            Number1 = double.Parse(Console.ReadLine());
-            Console.WriteLine("Give me your 2nd number");
-            Number2 = double.Parse(Console.ReadLine());
+            
+            //try
+            //{
+            //    Console.WriteLine("Give me your 2nd number");
+            //    Number2 = double.Parse(Console.ReadLine());
+            //}
+            //catch (ArgumentNullException x)
+            //{
+            //    Console.WriteLine(x.Message);
+            //}
+            //catch (FormatException x)
+            //{
+            //    Console.WriteLine(x.Message);
+            //}
+            //catch (OverflowException x)
+            //{
+            //    Console.WriteLine(x.Message);
+            //}
 
-            do
-            {
-                Console.WriteLine("Give me a symbol between :  +, -, *, /, %, square root");
-                Symbol = Console.ReadLine();
-            } while (Symbol != "+" && Symbol != "-" && Symbol != "*" && Symbol != "/" && Symbol != "%" && Symbol != "square root");
+            //do
+            //{
+            //    Console.WriteLine("Give me a symbol between :  +, -, *, /, %, square root");
+            //    Symbol = Console.ReadLine();
+            //} while (Symbol != "+" && Symbol != "-" && Symbol != "*" && Symbol != "/" && Symbol != "%" && Symbol != "square root");
         }
+        public bool number1()
+        {
+            try
+            {
+                Console.WriteLine("Give me your 1st number");
+                Number1 = double.Parse(Console.ReadLine());
+                return true;
+            }
+            catch (ArgumentNullException x)
+            {
+                Console.WriteLine(x.Message);
+                return false;
+            }
+            catch (FormatException x)
+            {
+                Console.WriteLine(x.Message);
+                return false;
+            }
+            catch (OverflowException x)
+            {
+                Console.WriteLine(x.Message);
+                return false;
+            }
+        }
+
+
+
 
         public void Calculate(string symbol)
         {
@@ -74,19 +115,6 @@ namespace Project2
             }
         }
 
-
-        //public static ulong GCD(ulong a, ulong b)
-        //{
-        //    while (a != 0 && b != 0)
-        //    {
-        //        if (a > b)
-        //            a %= b;
-        //        else
-        //            b %= a;
-        //    }
-
-        //    return a == 0 ? b : a;
-        //
         public static int GCD(int p, int q)
         {
             if (q == 0)

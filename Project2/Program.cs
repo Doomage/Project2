@@ -10,7 +10,13 @@ namespace Project2
             string end;
             do
             {
+                var s=false;
                 var x = new Results();
+                do
+                {
+                    x.number1();
+                } while (false);
+
                 x.Calculate(x.Symbol);
 
                 var y = new Results();
