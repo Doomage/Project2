@@ -14,31 +14,7 @@ namespace Project2
         public double result { get; set; }
 
         public Results()
-        {
-            
-            //try
-            //{
-            //    Console.WriteLine("Give me your 2nd number");
-            //    Number2 = double.Parse(Console.ReadLine());
-            //}
-            //catch (ArgumentNullException x)
-            //{
-            //    Console.WriteLine(x.Message);
-            //}
-            //catch (FormatException x)
-            //{
-            //    Console.WriteLine(x.Message);
-            //}
-            //catch (OverflowException x)
-            //{
-            //    Console.WriteLine(x.Message);
-            //}
-
-            //do
-            //{
-            //    Console.WriteLine("Give me a symbol between :  +, -, *, /, %, square root");
-            //    Symbol = Console.ReadLine();
-            //} while (Symbol != "+" && Symbol != "-" && Symbol != "*" && Symbol != "/" && Symbol != "%" && Symbol != "square root");
+        {  
         }
         public bool number1()
         {
@@ -64,8 +40,38 @@ namespace Project2
                 return false;
             }
         }
-
-
+        public bool number2()
+        {
+            try
+            {
+                Console.WriteLine("Give me your 1st number");
+                Number2 = double.Parse(Console.ReadLine());
+                return true;
+            }
+            catch (ArgumentNullException x)
+            {
+                Console.WriteLine(x.Message);
+                return false;
+            }
+            catch (FormatException x)
+            {
+                Console.WriteLine(x.Message);
+                return false;
+            }
+            catch (OverflowException x)
+            {
+                Console.WriteLine(x.Message);
+                return false;
+            }
+        }
+        public void symbol()
+        {
+            do
+            {
+                Console.WriteLine("Give me a symbol between :  +, -, *, /, %, square root");
+                Symbol = Console.ReadLine();
+            } while (Symbol != "+" && Symbol != "-" && Symbol != "*" && Symbol != "/" && Symbol != "%" && Symbol != "square root");
+        }
 
 
         public void Calculate(string symbol)

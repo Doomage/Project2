@@ -10,16 +10,29 @@ namespace Project2
             string end;
             do
             {
-                var s=false;
+                
                 var x = new Results();
                 do
                 {
-                    x.number1();
+                   x.number1();
                 } while (false);
-
+                do
+                {
+                    x.number2();
+                } while (false);
+                x.symbol();
                 x.Calculate(x.Symbol);
 
                 var y = new Results();
+                do
+                {
+                    y.number1();
+                } while (false);
+                do
+                {
+                    y.number2();
+                } while (false);
+                y.symbol();
                 y.Calculate(y.Symbol);
 
                 //checking and printing The Greater commong Divison of 2 results.
