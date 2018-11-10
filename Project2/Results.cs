@@ -10,67 +10,67 @@ namespace Project2
     {
         private double Number1 { get; set; }
         private double Number2 { get; set; }
-        public string Symbol { get; set; }
-        public double result { get; set; }
+        public string Symbol { get; private set; }
+        public double result { get; private set; }
 
         public Results()
         {  
         }
         public bool number1()
         {
-            try
+            while (true)
             {
-                Console.WriteLine("Give me your 1st number");
-                Number1 = double.Parse(Console.ReadLine());
-                return true;
-            }
-            catch (ArgumentNullException x)
-            {
-                Console.WriteLine(x.Message);
-                return false;
-            }
-            catch (FormatException x)
-            {
-                Console.WriteLine(x.Message);
-                return false;
-            }
-            catch (OverflowException x)
-            {
-                Console.WriteLine(x.Message);
-                return false;
+                try
+                {
+                    Console.WriteLine("Give me your 1st number");
+                    Number1 = double.Parse(Console.ReadLine());
+                    return true;
+                }
+                catch (ArgumentNullException x)
+                {
+                    Console.WriteLine(x.Message);
+                }
+                catch (FormatException x)
+                {
+                    Console.WriteLine(x.Message);
+                }
+                catch (OverflowException x)
+                {
+                    Console.WriteLine(x.Message);
+                }
             }
         }
         public bool number2()
         {
-            try
+            while (true)
             {
-                Console.WriteLine("Give me your 1st number");
-                Number2 = double.Parse(Console.ReadLine());
-                return true;
-            }
-            catch (ArgumentNullException x)
-            {
-                Console.WriteLine(x.Message);
-                return false;
-            }
-            catch (FormatException x)
-            {
-                Console.WriteLine(x.Message);
-                return false;
-            }
-            catch (OverflowException x)
-            {
-                Console.WriteLine(x.Message);
-                return false;
+                try
+                {
+                    Console.WriteLine("Give me your 2nd number");
+                    Number2 = double.Parse(Console.ReadLine());
+                    return true;
+                }
+                catch (ArgumentNullException x)
+                {
+                    Console.WriteLine(x.Message);
+                }
+                catch (FormatException x)
+                {
+                    Console.WriteLine(x.Message);
+                }
+                catch (OverflowException x)
+                {
+                    Console.WriteLine(x.Message);
+                }
             }
         }
         public void symbol()
         {
             do
             {
-                Console.WriteLine("Give me a symbol between :  +, -, *, /, %, square root");
+                Console.WriteLine("Give me between :  +, -, *, /, %, square root or sr");
                 Symbol = Console.ReadLine();
-            } while (Symbol != "+" && Symbol != "-" && Symbol != "*" && Symbol != "/" && Symbol != "%" && Symbol != "square root");
+            } while (Symbol != "+" && Symbol != "-" && Symbol != "*" && Symbol != "/" && Symbol != "%" && Symbol != "square root" && Symbol != "sr");
         }
 
 
@@ -110,27 +110,28 @@ namespace Project2
                     Console.WriteLine($"The result is: {Number1} % {Number2} = {result}");
                     break;
                 case "square root":
+                case "sr":
                     //TODO:
                     double result1 = Number1 - Number2;
                     if (result1 <= 0)
                         result = 0;
                     else
-                        result = Math.Sqrt(Number1) * Math.Sqrt(Number2);
+                        result = Math.Sqrt(Number1) + Math.Sqrt(Number2);
                     Console.WriteLine($"The result is: {Number1} square root {Number2} = {result}");
                     break;
             }
         }
 
-        public static int GCD(int p, int q)
+        public static long GreaterCommonDivision(long numbera, long numberb)
         {
-            if (q == 0)
+            if (numberb == 0)
             {
-                return p;
+                return numbera;
             }
 
-            int r = p % q;
+            long r = numbera % numberb;
 
-            return GCD(q, r);
+            return GreaterCommonDivision(numberb, r);
         }
 
         public static bool IsPrime(int number)

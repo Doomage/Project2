@@ -4,6 +4,7 @@ namespace Project2
 {
     class Program
     {
+        private static bool b;
 
         static void Main(string[] args)
         {
@@ -12,26 +13,14 @@ namespace Project2
             {
                 
                 var x = new Results();
-                do
-                {
-                   x.number1();
-                } while (false);
-                do
-                {
-                    x.number2();
-                } while (false);
+                x.number1();
+                x.number2();
                 x.symbol();
                 x.Calculate(x.Symbol);
 
                 var y = new Results();
-                do
-                {
-                    y.number1();
-                } while (false);
-                do
-                {
-                    y.number2();
-                } while (false);
+                y.number1();
+                y.number2();
                 y.symbol();
                 y.Calculate(y.Symbol);
 
