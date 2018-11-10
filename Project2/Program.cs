@@ -4,8 +4,6 @@ namespace Project2
 {
     class Program
     {
-        private static bool b;
-
         static void Main(string[] args)
         {
             string end;
@@ -17,6 +15,7 @@ namespace Project2
                 x.number2();
                 x.symbol();
                 x.Calculate(x.Symbol);
+
                 Console.WriteLine("---Second Calculation---");
                 var y = new Results();
                 y.number1();

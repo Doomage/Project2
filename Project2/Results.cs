@@ -94,7 +94,7 @@ namespace Project2
                 case "/":
                     while (Number2 == 0)
                     {
-                        Console.WriteLine("Give me a Number != 0\n");
+                        Console.WriteLine("Give me a Number != 0");
                         Number2 = double.Parse(Console.ReadLine());
                     }
                     result = Number1 / Number2;
