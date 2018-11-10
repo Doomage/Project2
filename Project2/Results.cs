@@ -81,57 +81,57 @@ namespace Project2
                 default:
                 case "+":
                     result = Number1 + Number2;
-                    Console.WriteLine($"The result is: {Number1} + {Number2} = {result}");
+                    Console.WriteLine($"The result is: {Number1} + {Number2} = {result}\n");
                     break;
                 case "-":
                     result = Number1 - Number2;
-                    Console.WriteLine($"The result is: {Number1} - {Number2} = {result}");
+                    Console.WriteLine($"The result is: {Number1} - {Number2} = {result}\n");
                     break;
                 case "*":
                     result = Number1 * Number2;
-                    Console.WriteLine($"The result is: {Number1} * {Number2} = {result}");
+                    Console.WriteLine($"The result is: {Number1} * {Number2} = {result}\n");
                     break;
                 case "/":
                     while (Number2 == 0)
                     {
-                        Console.WriteLine("Give me a Number != 0");
+                        Console.WriteLine("Give me a Number != 0\n");
                         Number2 = double.Parse(Console.ReadLine());
                     }
                     result = Number1 / Number2;
-                    Console.WriteLine($"The result is: {Number1} / {Number2} = {result}");
+                    Console.WriteLine($"The result is: {Number1} / {Number2} = {result}\n");
                     break;
                 case "%":
                     while (Number2 == 0)
                     {
-                        Console.WriteLine("Give me a Number != 0");
+                        Console.WriteLine("Give me a Number != 0\n");
                         Number2 = double.Parse(Console.ReadLine());
                     }
                     result = Number1 % Number2;
-                    Console.WriteLine($"The result is: {Number1} % {Number2} = {result}");
+                    Console.WriteLine($"The result is: {Number1} % {Number2} = {result}\n");
                     break;
                 case "square root":
                 case "sr":
-                    //TODO:
-                    double result1 = Number1 - Number2;
-                    if (result1 <= 0)
-                        result = 0;
+                    if (Number1 <= 0 ||Number2 <=0)
+                        Console.WriteLine("U cant have a square root of a negative number or with zero \n");
                     else
-                        result = Math.Sqrt(Number1) + Math.Sqrt(Number2);
-                    Console.WriteLine($"The result is: {Number1} square root {Number2} = {result}");
+                    {
+                        result = Math.Pow(Number1, 1 / Number2);
+                        Console.WriteLine($"The result is: {Number1} square root {Number2} = {result}\n");
+                    }
                     break;
             }
         }
 
-        public static long GreaterCommonDivision(long numbera, long numberb)
+        public static long GreaterCommonDivision(long NumberA, long NumberB)
         {
-            if (numberb == 0)
+            if (NumberB == 0)
             {
-                return numbera;
+                return NumberA;
             }
 
-            long r = numbera % numberb;
+            long r = NumberA % NumberB;
 
-            return GreaterCommonDivision(numberb, r);
+            return GreaterCommonDivision(NumberB, r);
         }
 
         public static bool IsPrime(int number)
@@ -149,14 +149,14 @@ namespace Project2
             return true;
         }
 
-        public static int Fibonacci(int n)
+        public static long Fibonacci(long n)
         {
-            int a = 0;
-            int b = 1;
+            long a = 0;
+            long b = 1;
             // In N steps compute Fibonacci sequence iteratively.
             for (int i = 0; i < n; i++)
             {
-                int temp = a;
+                long temp = a;
                 a = b;
                 b = temp + b;
             }
