@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Project2
 {
-    public class Results
+    internal class Results
     {
         private double Number1 { get; set; }
         private double Number2 { get; set; }
-        public string Symbol { get; private set; }
-        public double result { get; private set; }
+        internal string Symbol { get; private set; }
+        internal double result { get; private set; }
 
-        public Results()
+        internal Results()
         {  
         }
-        public bool number1()
+        internal bool number1()
         {
             while (true)
             {
@@ -40,7 +40,7 @@ namespace Project2
                 }
             }
         }
-        public bool number2()
+        internal bool number2()
         {
             while (true)
             {
@@ -64,7 +64,7 @@ namespace Project2
                 }
             }
         }
-        public void symbol()
+        internal void symbol()
         {
             do
             {
@@ -74,55 +74,66 @@ namespace Project2
         }
 
 
-        public void Calculate(string symbol)
+        internal bool Calculate(string symbol)
         {
-            switch (symbol)
+            while (true)
             {
-                default:
-                case "+":
-                    result = Number1 + Number2;
-                    Console.WriteLine($"The result is: {Number1} + {Number2} = {result}\n");
-                    break;
-                case "-":
-                    result = Number1 - Number2;
-                    Console.WriteLine($"The result is: {Number1} - {Number2} = {result}\n");
-                    break;
-                case "*":
-                    result = Number1 * Number2;
-                    Console.WriteLine($"The result is: {Number1} * {Number2} = {result}\n");
-                    break;
-                case "/":
-                    while (Number2 == 0)
+                try
+                {
+                    switch (symbol)
                     {
-                        Console.WriteLine("Give me a Number != 0");
-                        Number2 = double.Parse(Console.ReadLine());
+                        default:
+                        case "+":
+                            result = Number1 + Number2;
+                            Console.WriteLine($"The result is: {Number1} + {Number2} = {result}\n");
+                            return true;
+                        case "-":
+                            result = Number1 - Number2;
+                            Console.WriteLine($"The result is: {Number1} - {Number2} = {result}\n");
+                            return true;
+                        case "*":
+                            result = Number1 * Number2;
+                            Console.WriteLine($"The result is: {Number1} * {Number2} = {result}\n");
+                            return true;
+                        case "/":
+                            while (Number2 == 0)
+                            {
+                                Console.WriteLine("Give me a Number != 0");
+                                Number2 = double.Parse(Console.ReadLine());
+                            }
+                            result = Number1 / Number2;
+                            Console.WriteLine($"The result is: {Number1} / {Number2} = {result}\n");
+                            return true;
+                        case "%":
+                            while (Number2 == 0)
+                            {
+                                Console.WriteLine("Give me a Number != 0\n");
+                                Number2 = double.Parse(Console.ReadLine());
+                            }
+                            result = Number1 % Number2;
+                            Console.WriteLine($"The result is: {Number1} % {Number2} = {result}\n");
+                            return true;
+                        case "square root":
+                        case "sr":
+                            if (Number1 <= 0 || Number2 <= 0)
+                                Console.WriteLine("U cant have a square root of a negative number or with zero \n");
+                            else
+                            {
+                                result = Math.Pow(Number1, 1 / Number2);
+                                Console.WriteLine($"The result of {Number1} square root raised in {Number2} power = {result}\n");
+                            }
+                            return true;
                     }
-                    result = Number1 / Number2;
-                    Console.WriteLine($"The result is: {Number1} / {Number2} = {result}\n");
-                    break;
-                case "%":
-                    while (Number2 == 0)
-                    {
-                        Console.WriteLine("Give me a Number != 0\n");
-                        Number2 = double.Parse(Console.ReadLine());
-                    }
-                    result = Number1 % Number2;
-                    Console.WriteLine($"The result is: {Number1} % {Number2} = {result}\n");
-                    break;
-                case "square root":
-                case "sr":
-                    if (Number1 <= 0 ||Number2 <=0)
-                        Console.WriteLine("U cant have a square root of a negative number or with zero \n");
-                    else
-                    {
-                        result = Math.Pow(Number1, 1 / Number2);
-                        Console.WriteLine($"The result is: {Number1} square root {Number2} = {result}\n");
-                    }
-                    break;
+                }
+                catch (Exception x)
+                {
+                    Console.WriteLine(x.Message);
+                }
             }
+          
         }
 
-        public static long GreaterCommonDivision(long NumberA, long NumberB)
+        internal static long GreaterCommonDivision(long NumberA, long NumberB)
         {
             if (NumberB == 0)
             {
@@ -134,7 +145,7 @@ namespace Project2
             return GreaterCommonDivision(NumberB, r);
         }
 
-        public static bool IsPrime(int number)
+        internal static bool IsPrime(int number)
         {
             if (number <= 1) return false;
             if (number == 2) return true;
@@ -149,11 +160,10 @@ namespace Project2
             return true;
         }
 
-        public static long Fibonacci(long n)
+        internal static long Fibonacci(long n)
         {
             long a = 0;
             long b = 1;
-            // In N steps compute Fibonacci sequence iteratively.
             for (int i = 0; i < n; i++)
             {
                 long temp = a;
