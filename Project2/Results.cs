@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,14 @@ namespace Project2
 {
     internal class Results
     {
+        public static List<long> fibonacci = new List<long>();
         private double Number1 { get; set; }
         private double Number2 { get; set; }
         internal string Symbol { get; private set; }
         internal double result { get; private set; }
 
         internal Results()
-        {  
+        {
         }
         internal bool number1()
         {
@@ -130,7 +132,7 @@ namespace Project2
                     Console.WriteLine(x.Message);
                 }
             }
-          
+
         }
 
         internal static long GreaterCommonDivision(long NumberA, long NumberB)
@@ -162,15 +164,40 @@ namespace Project2
 
         internal static long Fibonacci(long n)
         {
+
             long a = 0;
             long b = 1;
             for (int i = 0; i < n; i++)
             {
+                fibonacci[i] = b;
                 long temp = a;
                 a = b;
                 b = temp + b;
             }
+            FibonnacciCount(n);
             return a;
         }
+
+        internal static void FibonnacciCount(long n)
+        {
+            for (int i = 0; i <= fibonacci.Count; i++)
+            {
+                if (fibonacci[i] == n)
+                {
+                    Console.WriteLine($"The number {n} is a Fibonacci number");
+                }
+                Console.WriteLine($"The number {n} is not a Fibonacci number");
+            }
+
+
+        }
+
+        //public IEnumerator GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
+
 }
+
+

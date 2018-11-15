@@ -38,7 +38,7 @@ namespace Project2
 
                 //Finding Fibonacci of result2
                 Console.WriteLine($"The Fibonacci number of {y.result} is {Results.Fibonacci((long)y.result)}");
-
+                //Results.FibonnacciCount(Results.Fibonacci((long)y.result));
                 //Programm continuing
                 Console.WriteLine("Do u want to Calculate something more? y/n");
                 end = Console.ReadLine();               
