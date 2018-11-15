@@ -180,7 +180,7 @@ namespace Project2
 
         internal static void FibonnacciCount(long n)
         {
-            for (int i = 0; i <= fibonacci.Count; i++)
+            for (int i = 0; i <= fibonacci.Count-1 ; i++)
             {
                 if (fibonacci[i] == n)
                 {
