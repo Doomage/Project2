@@ -181,9 +181,6 @@ namespace Project2
 
         internal static bool IsFibonacci(long n)
         {
-            // n is Fibonacci if one of 
-            // 5*n*n + 4 or 5*n*n - 4 or  
-            // both are a perfect square 
             return IsPerfectSquare(5 * n * n + 4) ||
                    IsPerfectSquare(5 * n * n - 4);
         }
