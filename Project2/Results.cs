@@ -9,7 +9,7 @@ namespace Project2
 {
     internal class Results
     {
-        public static List<long> fibonacci = new List<long>();
+        public static Dictionary<long,long> fibonacci = new Dictionary<long, long>();
         private double Number1 { get; set; }
         private double Number2 { get; set; }
         internal string Symbol { get; private set; }
@@ -180,22 +180,18 @@ namespace Project2
 
         internal static void FibonnacciCount(long n)
         {
-            for (int i = 0; i <= fibonacci.Count-1 ; i++)
+            for (int i = 0; i <= fibonacci.Count; i++)
             {
                 if (fibonacci[i] == n)
                 {
                     Console.WriteLine($"The number {n} is a Fibonacci number");
+                    return;
                 }
                 Console.WriteLine($"The number {n} is not a Fibonacci number");
             }
 
 
         }
-
-        //public IEnumerator GetEnumerator()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 
 }
