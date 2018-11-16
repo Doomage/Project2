@@ -29,16 +29,24 @@ namespace Project2
                 //check if Result 2 is a Prime number
                 if (Results.IsPrime((int)y.result))
                 {
-                    Console.WriteLine($"The number {y.result} is a prime number");
+                    Console.WriteLine($"The number {(long)y.result} is a prime number");
                 }
                 else
                 {
-                    Console.WriteLine($"The number {y.result} is not a prime number");
+                    Console.WriteLine($"The number {(long)y.result} is not a prime number");
                 }
 
                 //Finding Fibonacci of result2
-                Console.WriteLine($"The Fibonacci number of {y.result} is {Results.Fibonacci((long)y.result)}");
-
+                Console.WriteLine($"The Fibonacci number of {(long)y.result} is {Results.Fibonacci((long)y.result)}");
+                //Finding if the result2 is a fibinacci Number
+                if (Results.isFibonacci((long)y.result) == true)
+                {
+                    Console.WriteLine($"The number {(long)y.result} is in fibonacci numbers");
+                }
+                else
+                {
+                    Console.WriteLine($"The number {(long)y.result} is not in fibonacci numbers");
+                }
                 //Programm continuing
                 Console.WriteLine("Do u want to Calculate something more? y/n");
                 end = Console.ReadLine();               

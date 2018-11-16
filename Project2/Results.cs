@@ -8,6 +8,7 @@ namespace Project2
 {
     internal class Results
     {
+        private static Dictionary<long, long> FibonnaciDictionary = new Dictionary<long, long>();
         private double Number1 { get; set; }
         private double Number2 { get; set; }
         internal string Symbol { get; private set; }
@@ -96,7 +97,7 @@ namespace Project2
                             Console.WriteLine($"The result is: {Number1} * {Number2} = {result}\n");
                             return true;
                         case "/":
-                            while (Number2 == 0)
+                            while (Number2 == 0d)
                             {
                                 Console.WriteLine("Give me a Number != 0");
                                 Number2 = double.Parse(Console.ReadLine());
@@ -105,7 +106,7 @@ namespace Project2
                             Console.WriteLine($"The result is: {Number1} / {Number2} = {result}\n");
                             return true;
                         case "%":
-                            while (Number2 == 0)
+                            while (Number2 == 0d)
                             {
                                 Console.WriteLine("Give me a Number != 0\n");
                                 Number2 = double.Parse(Console.ReadLine());
@@ -115,7 +116,7 @@ namespace Project2
                             return true;
                         case "square root":
                         case "sr":
-                            if (Number1 <= 0 || Number2 <= 0)
+                            if (Number1 <= 0d || Number2 <= 0d)
                                 Console.WriteLine("U cant have a square root of a negative number or with zero \n");
                             else
                             {
@@ -166,11 +167,54 @@ namespace Project2
             long b = 1;
             for (int i = 0; i < n; i++)
             {
+                FibonnaciDictionary[i] = b;
                 long temp = a;
                 a = b;
                 b = temp + b;
             }
             return a;
         }
+
+        //internal static void FibonacciNumber(long n)
+        //{
+        //    foreach (var lines in FibonnaciDictionary)
+        //    {
+        //        if (n==0)
+        //        {
+        //            Console.WriteLine($"The number {n} is in fibonacci numbers");
+        //            return;
+        //        }
+        //        if (n==2)
+        //        {
+        //            Console.WriteLine($"The number {n} is in fibonacci numbers");
+        //            return;
+        //        }
+        //        else if (  n == lines.Value )
+        //        {
+        //            Console.WriteLine($"The number {n} is in fibonacci numbers");
+        //            return;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine($"The number {n} is not in fibonacci numbers");
+        //        }
+                
+        //    }
+        //}
+        static bool isPerfectSquare(long x)
+        {
+            long s = (long)Math.Sqrt(x);
+            return (s * s == x);
+        }
+
+        internal static bool isFibonacci(long n)
+        {
+            // n is Fibonacci if one of 
+            // 5*n*n + 4 or 5*n*n - 4 or  
+            // both are a perfect square 
+            return isPerfectSquare(5 * n * n + 4) ||
+                   isPerfectSquare(5 * n * n - 4);
+        }
     }
+    
 }
