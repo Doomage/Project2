@@ -4,7 +4,7 @@ namespace Project2
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             string end;
             do
@@ -39,7 +39,7 @@ namespace Project2
                 //Finding Fibonacci of result2
                 Console.WriteLine($"The Fibonacci number of {(long)y.result} is {Results.Fibonacci((long)y.result)}");
                 //Finding if the result2 is a fibinacci Number
-                if (Results.isFibonacci((long)y.result) == true)
+                if (Results.IsFibonacci((long)y.result) == true)
                 {
                     Console.WriteLine($"The number {(long)y.result} is in fibonacci numbers");
                 }

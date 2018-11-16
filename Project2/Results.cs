@@ -8,7 +8,6 @@ namespace Project2
 {
     internal class Results
     {
-        private static Dictionary<long, long> FibonnaciDictionary = new Dictionary<long, long>();
         private double Number1 { get; set; }
         private double Number2 { get; set; }
         internal string Symbol { get; private set; }
@@ -167,53 +166,26 @@ namespace Project2
             long b = 1;
             for (int i = 0; i < n; i++)
             {
-                FibonnaciDictionary[i] = b;
+                
                 long temp = a;
                 a = b;
                 b = temp + b;
             }
             return a;
         }
-
-        //internal static void FibonacciNumber(long n)
-        //{
-        //    foreach (var lines in FibonnaciDictionary)
-        //    {
-        //        if (n==0)
-        //        {
-        //            Console.WriteLine($"The number {n} is in fibonacci numbers");
-        //            return;
-        //        }
-        //        if (n==2)
-        //        {
-        //            Console.WriteLine($"The number {n} is in fibonacci numbers");
-        //            return;
-        //        }
-        //        else if (  n == lines.Value )
-        //        {
-        //            Console.WriteLine($"The number {n} is in fibonacci numbers");
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine($"The number {n} is not in fibonacci numbers");
-        //        }
-                
-        //    }
-        //}
-        static bool isPerfectSquare(long x)
+        static bool IsPerfectSquare(long x)
         {
             long s = (long)Math.Sqrt(x);
             return (s * s == x);
         }
 
-        internal static bool isFibonacci(long n)
+        internal static bool IsFibonacci(long n)
         {
             // n is Fibonacci if one of 
             // 5*n*n + 4 or 5*n*n - 4 or  
             // both are a perfect square 
-            return isPerfectSquare(5 * n * n + 4) ||
-                   isPerfectSquare(5 * n * n - 4);
+            return IsPerfectSquare(5 * n * n + 4) ||
+                   IsPerfectSquare(5 * n * n - 4);
         }
     }
     
