@@ -4,7 +4,7 @@ namespace Project2
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             string end;
             do

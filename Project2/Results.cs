@@ -8,8 +8,8 @@ namespace Project2
 {
     internal class Results
     {
-        private double Number1 { get; set; }
-        private double Number2 { get; set; }
+        internal double Number1 { get; set; }
+        internal double Number2 { get; set; }
         internal string Symbol { get; private set; }
         internal double result { get; private set; }
 
@@ -173,6 +173,7 @@ namespace Project2
             }
             return a;
         }
+
         static bool IsPerfectSquare(long x)
         {
             long s = (long)Math.Sqrt(x);
@@ -181,8 +182,7 @@ namespace Project2
 
         internal static bool IsFibonacci(long n)
         {
-            return IsPerfectSquare(5 * n * n + 4) ||
-                   IsPerfectSquare(5 * n * n - 4);
+            return IsPerfectSquare(5 * n * n + 4) || IsPerfectSquare(5 * n * n - 4);
         }
     }
     

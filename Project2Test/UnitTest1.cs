@@ -54,7 +54,6 @@ namespace Project2Test
         public void TestGreaterCommonDivisor()
         {
             Assert.AreEqual(Results.GreaterCommonDivision(1, 0), 1);
-            Assert.AreEqual(Results.GreaterCommonDivision(1, 0), 1);
             Assert.AreEqual(Results.GreaterCommonDivision(1, 1), 1);
             Assert.AreEqual(Results.GreaterCommonDivision(10, 5), 5);
             Assert.AreEqual(Results.GreaterCommonDivision(20, 2), 2);
@@ -65,6 +64,15 @@ namespace Project2Test
         public void TestCalculate()
         {
             Results x = new Results();
+            x.Number1 = 1;
+            x.Number2 = 0;
+            Assert.IsTrue(x.Calculate("sr"));
+            Assert.Equals(x.Calculate("+"),1);
+            Assert.Equals(x.Calculate("-"),1);
+            Assert.IsTrue(x.Calculate("/"));
+            Assert.IsTrue(x.Calculate("%"));
+            Assert.Equals(x.Calculate("*"),1);
+
         }
     }   
 }
